@@ -1,17 +1,16 @@
+// data.js: all the information in the app.
+
 const PLACES = [
-  { name: "Mercy Medical Center", type: "hospital", town: "Merced", phone: "209-564-5000", address: "333 Mercy Ave, CA", hours: "Open 24 hours", checked: "Oct 2026" },
-  { name: "Memorial Hospital Los Banos", type: "hospital", town: "Los Banos", phone: "209-826-0591", address: "4520 W I St, Los Banos, CA", hours: "Open 24 hours", checked: "Oct 2026" },
-  { name: "Madera Community Hospital", type: "hospital", town: "Madera", phone: "559-675-5555 ", address: "1250 E Almond Ave, Madera, CA", hours: "Open 24 hours", checked: "Oct 2026" },
-  { name: "Dameron Hospital", type: "hospital", town: "Stockton", phone: "209-944-5550", address: "525 Acacia St, Stockton, CA", hours: "Open 24 hours", checked: "Oct 2026" },
-  { name: "Kaiser Permanente Manteca Medical Center", type: "hospital", town: "Manteca", phone: "209-825-3700", address: "1777 W Yosemite Ave, Manteca, CA", hours: "Open 24 hours", checked: "Oct 2026" },
-  
-  { name: "Merced County Library", type: "cooling", town: "Merced", phone: "209-385-7484", address: "2100 O St, Merced, CA", hours: "Mon-Sat 10 am to 5 pm", note: "Free. Cooling and clean air", checked: "Oct 2026" },
-  { name: "Atwater City Community Center", type: "cooling", town: "Atwater", phone: "209-357-6320", address: "760 E Bellevue Rd, City of Atwater, CA", hours: "Not Mentioned", note: "Free. Cooling and clean air", checked: "Oct 2026" },
-  { name: "Livingston Library", type: "cooling", town: "Livingston", phone: "209-394-7330", address: "1212 Main St, Livingston, CA", hours: "Tue-Sat 10 am to 5 pm", note: "Free. Cooling and clean air", checked: "Oct 2026" },
-  { name: "Winton Community Hall", type: "cooling", town: "Winton", phone: "Not Available", address: "7069-7113 Walnut Ave, Winton, CA", hours: "Not Available", note: "Free. Cooling and clean air", checked: "Oct 2026" },
-  { name: "Lathrop Branch Library", type: "cooling", town: "Lathrop", phone: "209-941-7368", address: "450 Spartan Way, Lathrop, CA", hours: "Mon-Sat 1 pm to 4 pm", note: "Free. Cooling and clean air", checked: "Oct 2026" },
+  { name: "Mercy Medical Center Merced", type: "hospital", town: "Merced", phone: "209-564-5000", address: "333 Mercy Ave, Merced, CA", hours: "Open 24 hours", checked: "Oct 2026" },
+  { name: "Memorial Hospital Los Banos", type: "hospital", town: "Los Banos", phone: "209-826-0591", address: "520 W I St, Los Banos, CA", hours: "Open 24 hours", checked: "Oct 2026" },
+  { name: "Madera Community Hospital", type: "hospital", town: "Madera", phone: "559-675-5555", address: "1250 E Almond Ave, Madera, CA", hours: "Open 24 hours", checked: "Oct 2026" },
+  { name: "Dameron Hospital", type: "hospital", town: "Stockton", phone: "209-944-5550", address: "525 W Acacia St, Stockton, CA", hours: "Open 24 hours", checked: "Oct 2026" },
 
-
+  { name: "Merced County Library", type: "cooling", town: "Merced", phone: "209-385-7484", address: "2100 O St, Merced, CA", hours: "Mon-Sat 10 am to 5 pm", note: "Free. Cooling", checked: "Oct 2026" },
+  { name: "Atwater City Community Center", type: "cooling", town: "Atwater", phone: "209-357-6320", address: "760 E Bellevue Rd, Atwater, CA", hours: "Call for hours", note: "Free. Cooling", checked: "Oct 2026" },
+  { name: "Livingston Library", type: "cooling", town: "Livingston", phone: "209-394-7330", address: "1212 Main St, Livingston, CA", hours: "Tue-Sat 10 am to 5 pm", note: "Free. Cooling", checked: "Oct 2026" },
+  { name: "Winton Community Hall", type: "cooling", town: "Winton", phone: "Not Available", address: "7091 Walnut Ave, Winton, CA", hours: "Call for hours", note: "Free. Cooling", checked: "Oct 2026" },
+  { name: "Lathrop Branch Library", type: "cooling", town: "Lathrop", phone: "209-941-7368", address: "450 Spartan Way, Lathrop, CA", hours: "Mon-Sat 1 pm to 4 pm", note: "Free. Cooling", checked: "Oct 2026" },
 ];
 
 // Events people can see. New ones added in the app disappear when the page refreshes.
@@ -61,5 +60,5 @@ const TOWNS = {
   "Stockton": [37.9577, -121.2908],
   "French Camp": [37.8838, -121.2713],
   "Garden Acres": [37.9658, -121.2224],
-  "August": [37.9730, -121.2644]
+  "August": [37.9730, -121.2644],
 };
