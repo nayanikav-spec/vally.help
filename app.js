@@ -27,10 +27,10 @@ function placeCard(p) {
     <h3>${esc(p.name)}</h3>
     <p class="sub">${p.type === "hospital" ? "Hospital" : "Cooling & clean air center"} · ${esc(p.town)}</p>
     <p>${esc(p.hours)}</p>
-    <p class="sub">${esc(p.note)}</p>
+    ${p.note ? `<p class="sub">${esc(p.note)}</p>` : ""}
     <p class="sub">${esc(p.address)} · Checked ${esc(p.checked)}</p>
     <div class="actions">
-      <a class="btn fill" href="tel:${p.phone.replace(/\D/g, "")}">Call</a>
+      ${/\d/.test(p.phone) ? `<a class="btn fill" href="tel:${p.phone.replace(/\D/g, "")}">Call</a>` : ""}
       <a class="btn" target="_blank" rel="noopener" href="${directions}">Directions</a>
     </div></article>`;
 }
@@ -43,14 +43,15 @@ function setType(t) {
 }
 document.querySelectorAll("#types button").forEach((b) => (b.onclick = () => setType(b.dataset.type)));
 
-$("town").innerHTML = ["All towns", ...Object.keys(TOWNS)].map((t) => `<option>${t}</option>`).join("");
+// the dropdown only lists towns that have at least one place
+$("town").innerHTML = ["All towns", ...new Set(PLACES.map((p) => p.town))].map((t) => `<option>${t}</option>`).join("");
 $("town").onchange = () => { town = $("town").value; showPlaces(); checkAlert(); };
 
 // ---------- heat and smoke alert (free data from Open-Meteo) ----------
 // To test it, add ?demo=heat or ?demo=smoke to the web address.
 async function checkAlert() {
   const name = town === "All towns" ? "Merced" : town;
-  const [lat, lon] = TOWNS[name];
+  const [lat, lon] = TOWNS[name] || TOWNS["Merced"];
   const demo = new URLSearchParams(location.search).get("demo");
   let temp = demo === "heat" ? 108 : 0, aqi = demo === "smoke" ? 170 : 0;
   if (!demo) {
