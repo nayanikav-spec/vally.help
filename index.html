@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f2f2f7">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ValleyHelp">
+<title>ValleyHelp</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg style="display:none"><symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol></svg>
+
+<!-- Screen 1: Contacts (emergency numbers) -->
+<section class="screen on" id="contacts">
+  <h1>Contacts</h1>
+  <div class="alert" id="alert" hidden></div>
+  <div class="group">
+    <a class="item" href="tel:911"><span class="icon red"><svg><use href="#phone"/></svg></span><span><b>Emergency</b><small>911</small></span></a>
+    <a class="item" href="tel:988"><span class="icon"><svg><use href="#phone"/></svg></span><span><b>Crisis and Suicide Lifeline</b><small>988</small></span></a>
+    <a class="item" href="tel:18002221222"><span class="icon"><svg><use href="#phone"/></svg></span><span><b>Poison Control</b><small>1-800-222-1222</small></span></a>
+    <a class="item" href="tel:18007997233"><span class="icon"><svg><use href="#phone"/></svg></span><span><b>Domestic Violence Hotline</b><small>1-800-799-7233</small></span></a>
+  </div>
+  <p class="foot">If someone is in danger or badly hurt, call 911 first.</p>
+  <p class="foot">Prototype with sample listings, not real places. Not medical advice.</p>
+</section>
+
+<!-- Screen 2: Places -->
+<section class="screen" id="places">
+  <h1>Places</h1>
+  <div class="seg" id="types">
+    <button class="on" data-type="hospital">Hospitals</button>
+    <button data-type="cooling">Cooling &amp; clean air</button>
+  </div>
+  <select id="town" aria-label="Town"></select>
+  <p class="note" id="coolnote" hidden>Cooling centers are public air-conditioned places, like libraries, open for free during dangerous heat. Clean air centers have filtered air for smoky or dusty days. Many open only during an alert, so call first.</p>
+  <div id="placelist"></div>
+</section>
+
+<!-- Screen 3: Events -->
+<section class="screen" id="events">
+  <h1>Events <button class="plus" id="add" aria-label="Add an event">+</button></h1>
+  <div id="eventlist"></div>
+</section>
+
+<!-- the "New event" sheet -->
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-body">
+    <h2>New event</h2>
+    <label class="photo-btn" for="photo">Add a photo of the flyer</label>
+    <input type="file" id="photo" accept="image/*" hidden>
+    <img id="preview" alt="" hidden>
+    <label for="title">What is it?</label><input id="title" placeholder="Free health screening">
+    <label for="where">Where?</label><input id="where" placeholder="Place and address">
+    <label for="date">Date</label><input type="date" id="date">
+    <label for="details">Details</label><textarea id="details" rows="3" placeholder="Who it is for, what is free"></textarea>
+    <div class="row"><button class="btn fill" id="save">Post</button><button class="btn" id="cancel">Cancel</button></div>
+  </div>
+</div>
+
+<nav id="tabbar">
+  <button class="on" data-tab="contacts"><svg viewBox="0 0 24 24"><use href="#phone"/></svg>Contacts</button>
+  <button data-tab="places"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/></svg>Places</button>
+  <button data-tab="events"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></svg>Events</button>
+</nav>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
